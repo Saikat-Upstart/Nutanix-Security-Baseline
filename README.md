@@ -17,17 +17,6 @@ syslog # syslog settings
 firewall # set firewall settings on cvms
 DODbanner # set DODBanner on cvms
 
-
-# Example Playbook
----
-- hosts: all
-  roles:
-    - nutanix_baseline
-  vars:
-    ansible_user: nutanix
-    #Use ansible vault for password here.
-    ansible_password: secret
-
 # Invetory Located in the hosts folder
 This is where you will list the individual cvms for each node. I would suggest making the your cluster name the group name, for Example
 [palo.nutanix.cluster]
@@ -62,3 +51,11 @@ main.yml - main task List - Tasks can be comment out if not needed
  - firewall.yml # copy firewall rules to all cvms
  - syslog.yml # Set the syslog
  - apply.yml apply firewall rules on all cvms
+ 
+ # Example commands 
+ This will run the playbook on a cluster that does not have AHV hypervisor
+ 
+ ansible-playbook ntnx_sec.yml -l nutanix_cluster_name -t cvm,security,syslog,firewall  
+ 
+ This will run the playbook on an AHV cluster
+  ansible-playbook ntnx_sec.yml -l nutanix_cluster_name 
