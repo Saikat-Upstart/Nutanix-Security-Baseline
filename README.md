@@ -17,7 +17,6 @@ syslog # syslog settings
 firewall # set firewall settings on cvms
 DODbanner # set DODBanner on cvms
 
-
 Example Playbook
 ---
 # Base Playbook
@@ -28,7 +27,7 @@ Example Playbook
     - nutanix_baseline
   vars:
     ansible_user: nutanix
-    # Use ansible vault for password here.
+    #Use ansible vault for password here.
     ansible_password: secret
 
 Invetory #Located in the hosts folder
