@@ -1,4 +1,4 @@
-Nutanix Security Baseline
+# Nutanix Security Baseline
 
 A role to set and/or reset security settings on nutanix cvms for operation in a high governance area
 
@@ -39,14 +39,14 @@ palo-ntnx-cvm-b
 palo-ntnx-cvm-c
 palo-ntnx-cvm-d
 
-group_vars #Located in the group_vars folder
+# group_vars #Located in the group_vars folder
 Group vars will tell which firewall template to use if you have multiple cluster to manage. The group var must match group name for it to pick up the right firewall template file
 
-templates   #Located under roles/nutanix_baseline/templates
+# templates   #Located under roles/nutanix_baseline/templates
 example._salt.conf.h2  # This is where your firewall rules replace example with your site name form the hosts file (inventory)
 dodbanner.conf.j2  # The is the template for the banner that will be copied to each node in each cluster
 
-Security Settings # This is what the settings will be after the playbook is run, if the setting is set it will run
+# Security Settings # This is what the settings will be after the playbook is run, if the setting is set it will run
 ncli  cluster get-cvm-security-config
 
     Enable Aide               : true
@@ -56,7 +56,7 @@ ncli  cluster get-cvm-security-config
     Enable SNMPv3 Only        : true
     Schedule                  : Daily
 
-Tasks
+# Tasks
 main.yml - main task List - Tasks can be comment out if not needed
  - checksecsettings.yml # checks to see what security settings are set
  - dodbanner.yml # imports custom DODbanner to all cvms
