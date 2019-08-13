@@ -1,4 +1,5 @@
 Nutanix Security Baseline
+
 A role to set and/or reset security settings on nutanix cvms for operation in a high governance area
 
 Required Variables
