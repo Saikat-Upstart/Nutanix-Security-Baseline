@@ -1,0 +1,26 @@
+---
+- name: Enable aide on the cvm
+  command:  /home/nutanix/prism/cli/ncli cluster edit-cvm-security-params enable-aide=true
+  tags: [ cvm ]
+  run_once: true
+  when: aide_set is failed
+- name: Enable high strength pasword on the cvm
+  command:  /home/nutanix/prism/cli/ncli cluster edit-cvm-security-params enable-high-strength-password=true
+  tags: [ cvm ]
+  run_once: true
+  when: pass_set is failed
+- name: Enable snmpv3 only on the cvm
+  command:  /home/nutanix/prism/cli/ncli cluster edit-cvm-security-params enable-snmpv3-only=true
+  tags: [ cvm ]
+  run_once: true
+  when: snmp_set is failed
+- name: Enable custom banner on the cvm
+  shell: /home/nutanix/prism/cli/ncli cluster edit-cvm-security-params enable-banner=true
+  tags: [ cvm ]
+  run_once: true
+  when: banner_set is failed
+- name: Enable Hourly SCMA on the cvm
+  shell: /home/nutanix/prism/cli/ncli cluster edit-cvm-security-params schedule=hourly
+  when: scma_set is failed
+  tags: [ cvm ]
+  run_once: true

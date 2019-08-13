@@ -1,0 +1,8 @@
+---
+- name: setting cvm dodbanner  - /srv/salt/security/CVM/sshd/DODbanner
+  template:
+     src: dodbanner.conf.j2
+     dest:  /srv/salt/security/CVM/sshd/DODbanner
+     owner: root
+     mode: 0600
+  tags: [ cvm , DODbanner]

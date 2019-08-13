@@ -1,0 +1,5 @@
+---
+- name: apply cvm firewall settings
+  shell: for i in `svmips`; do echo cvm $i; ssh $i 'sudo salt-call state.sls security/CVM/networkCVM'; sleep 5; done
+  become: false
+  tags: [ cvm, firewall ]

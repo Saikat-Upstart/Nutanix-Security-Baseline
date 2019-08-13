@@ -1,0 +1,6 @@
+---
+[nutanix_cluster_name]   # Cluster name/local
+nutanix_node_cvm_01
+nutanix_node_cvm_02
+nutanix_node_cvm_03
+nutanix_node_cvm_04

@@ -1,0 +1,10 @@
+---
+# tasks file for nutanix_baseline_security
+# Tasked can be disabled if not needed
+- import_tasks: checksecsettings.yml
+- import_tasks: dodbanner.yml
+- import_tasks: cvmsecsettings.yml
+- import_tasks: ahvsecsettings.yml
+- import_tasks: firewall.yml
+- import_tasks: syslog.yml
+- import_tasks: apply.yml

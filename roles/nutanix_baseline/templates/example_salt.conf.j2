@@ -1,0 +1,40 @@
+# {{ansible_managed}}
+#
+# hosts.allow   This file contains access rules which are used to
+#               allow or deny connections to network services that
+#               either use the tcp_wrappers library or that have been
+#               started through a tcp_wrappers-enabled xinetd.
+#
+#               See 'man 5 hosts_options' and 'man 5 hosts_access'
+#               for information on rule syntax.
+#               See 'man tcpd' for information on tcp_wrappers
+#
+sshd: 127.0.0.1 : ALLOW
+sshd: [::1] : ALLOW
+sshd: 192.168.5. : ALLOW
+sshd: 10.13.246. : ALLOW
+sshd: 10.13.200. : ALLOW
+sshd: 10.0. : ALLOW
+sshd: 10.3. : ALLOW
+sshd: 172.21.8. : ALLOW
+rpcbind: 127.0.0.1 : ALLOW
+rpcbind: [::1] : ALLOW
+rpcbind: 192.168.5. : ALLOW
+rpcbind: 10.13.246. : ALLOW
+rpcbind: 10.13.200. : ALLOW
+rpcbind: 10.0. : ALLOW
+rpcbind: 10.3. : ALLOW
+snmpd: 127.0.0.1 : ALLOW
+snmpd: [::1] : ALLOW
+snmpd: 192.168.5. : ALLOW
+snmpd: 10.13.246. : ALLOW
+snmpd: 10.13.200. : ALLOW
+snmpd: 10.0. : ALLOW
+snmpd: 10.3. : ALLOW
+snmptrapd: 127.0.0.1 : ALLOW
+snmptrapd: [::1] : ALLOW
+snmptrapd: 192.168.5. : ALLOW
+snmptrapd: 10.13.246. : ALLOW
+snmptrapd: 10.13.200. : ALLOW
+snmptrapd: 10.0. : ALLOW
+snmptrapd: 10.3. : ALLOW

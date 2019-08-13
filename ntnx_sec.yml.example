@@ -1,0 +1,11 @@
+---
+# Base Playbook
+
+# Apply common config to all servers
+- hosts: all
+  roles:
+    - nutanix_baseline
+  vars:
+    ansible_user: nutanix
+    # Use ansible vault for password here.
+    ansible_password: Password

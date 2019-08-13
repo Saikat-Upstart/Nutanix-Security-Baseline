@@ -1,0 +1,8 @@
+---
+- name: setting firewall rules config - /srv/salt/security/CVM/network/hosts.allow
+  template:
+     src: "{{ site_firewall_rules }}"
+     dest: /srv/salt/security/CVM/network/hosts.allow
+     owner: root
+     mode: 0600
+  tags: [ firewall ]

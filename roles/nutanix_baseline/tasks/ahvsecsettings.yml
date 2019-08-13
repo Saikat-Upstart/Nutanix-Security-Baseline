@@ -1,0 +1,21 @@
+---
+# - name: setting hypervisor dodbanner  - /srv/salt/security/KVM/sshd/DODbanner
+#  command: scp
+#  tags: [ ahv, DODbanner ]
+#  run_once: true
+
+- name: Enable aide on ahv
+  command:  /home/nutanix/prism/cli/ncli cluster edit-hypervisor-security-params enable-aide=true
+  tags: [ ahv ]
+  run_once: true
+  when: aideahv_set is failed
+- name: Enable high strength pasword on ahv
+  command:  /home/nutanix/prism/cli/ncli cluster edit-hypervisor-security-params enable-high-strength-password=true
+  tags: [ ahv ]
+  run_once: true
+  when: passahv_set is failed
+- name: Enable custom banner on ahv
+  command: /home/nutanix/prism/cli/ncli cluster edit-hypervisor-security-params enable-banner=true
+  tags: [ ahv ]
+  run_once: true
+  when: bannerahv_set is failed

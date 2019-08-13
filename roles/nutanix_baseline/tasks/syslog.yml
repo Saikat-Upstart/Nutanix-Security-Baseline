@@ -1,0 +1,11 @@
+---
+- name: setup syslog
+  command: /home/nutanix/prism/cli/ncli rsyslog-config create-server name=eri-flentd-lp01.lord.local ip-address=10.0.200.203 port=514 network-protocol=udp relp-enabled=no
+  tags: [ syslog ]
+  run_once: true
+  when: syslog_set is failed
+- name: setup log forwarding
+  command: /home/nutanix/prism/cli/ncli rsyslog-config add-module module-name=syslog_module level=info server-name=eri-flentd-lp01.lord.local
+  tags: [ syslog ]
+  run_once: true
+  when: syslog_set is failed

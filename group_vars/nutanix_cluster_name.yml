@@ -1,0 +1,2 @@
+---
+site_firewall_rules: example_salt.conf.j2

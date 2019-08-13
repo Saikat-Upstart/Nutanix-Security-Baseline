@@ -1,0 +1,66 @@
+---
+# Nutanix Settings Check
+- name: Check if cvm aide is set
+  shell: /home/nutanix/prism/cli/ncli  cluster get-cvm-security-config | grep 'Enable Aide'
+  register: aide_set
+  changed_when: false
+  ignore_errors: true
+  run_once: true
+  tags: [ cvm ]
+- name: Check if cvm password complexity is set
+  shell: /home/nutanix/prism/cli/ncli  cluster get-cvm-security-config | grep 'Enable High Strength'
+  register: pass_set
+  changed_when: false
+  ignore_errors: true
+  run_once: true
+  tags: [ cvm ]
+- name: Check if cvm banner is set
+  shell: /home/nutanix/prism/cli/ncli  cluster get-cvm-security-config | grep 'Enable Banner'
+  register: banner_set
+  changed_when: false
+  ignore_errors: true
+  run_once: true
+  tags: [ cvm ]
+- name: Check if cvm aide is set
+  shell: /home/nutanix/prism/cli/ncli  cluster get-cvm-security-config | grep 'Enable SNMPv3 Only'
+  register: snmp_set
+  changed_when: false
+  ignore_errors: true
+  run_once: true
+  tags: [ cvm ]
+- name: Check if cvm SCMA schedule is daily
+  shell: /home/nutanix/prism/cli/ncli cluster get-cvm-security-config | grep Schedule
+  register: scma_set
+  changed_when: 'DAILY'
+  ignore_errors: true
+  run_once: true
+  tags: [ cvm ]
+# AHV Settings Check
+- name: Check if ahv aide is set
+  shell: /home/nutanix/prism/cli/ncli  cluster get-hypervisor-security-config | grep 'Enable Aide'
+  register: aideahv_set
+  changed_when: false
+  ignore_errors: true
+  run_once: true
+  tags: [ ahv ]
+- name: Check if ahv aide is set
+  shell: /home/nutanix/prism/cli/ncli  cluster get-hypervisor-security-config | grep 'Enable High Strength'
+  register: passahv_set
+  changed_when: false
+  ignore_errors: true
+  run_once: true
+  tags: [ ahv ]
+- name: Check if cvm aide is set
+  shell: /home/nutanix/prism/cli/ncli  cluster get-hypervisor-security-config | grep 'Enable Banner'
+  register: bannerahv_set
+  changed_when: false
+  ignore_errors: true
+  run_once: true
+  tags: [ ahv ]
+- name: Check if syslog is setup
+  shell: /home/nutanix/prism/cli/ncli rsyslog-config list-servers | grep 'Include Monitor Logs'
+  register: syslog_set
+  changed_when:  false
+  ignore_errors: true
+  run_once: true
+  tags: [ cvm, syslog ]
