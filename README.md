@@ -11,7 +11,9 @@ transfer_method = scp        # set transfer_method=scp in the ansible config fil
 
 # tags
 There are 5 tags in the playbook so you can run all or some of the settings, if you run 
-ansible-playbook ntnx_sec.yml -t cvm, DODbanner, firewall, this will set the firewall and secsettings on a nutanix cluster that is running ESXi, if you have an ahv cluster you do not need any tags.
+ansible-playbook ntnx_sec.yml -t cvm,DODbanner,firewall 
+This will set the firewall and secsettings on a nutanix cluster that is running ESXi, if you have an ahv cluster you do not need any tags.
+
 cvm - Run CVM tasks
 ahv - Run ahv related tasks for the hypervisor
 syslog - syslog settings
