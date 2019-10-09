@@ -18,24 +18,21 @@ There are 5 tags in the playbook so you can run all or some of the settings.
 
 This will set the firewall and secsettings on a nutanix cluster that is running ESXi, if you have an ahv cluster you do not need any tags.
 
-cvm - Run CVM tasks
-
-ahv - Run ahv related tasks for the hypervisor
-
-syslog - syslog settings
-
-firewall - set and apply firewall settings on cvms
-
-DODbanner - set DODBanner on cvms
+- cvm - Run CVM tasks
+- ahv - Run ahv related tasks for the hypervisor
+- syslog - syslog settings
+- firewall - set and apply firewall settings on cvms
+- DODbanner - set DODBanner on cvms
 
 
 # Invetory Located in the hosts folder
 This is where you will list the individual cvms for each node. I would suggest making the your cluster name the group name, for Example
-[palo.nutanix.cluster]
-palo-ntnx-cvm-a
-palo-ntnx-cvm-b
-palo-ntnx-cvm-c
-palo-ntnx-cvm-d
+   
+    [palo.nutanix.cluster]
+    palo-ntnx-cvm-a
+    palo-ntnx-cvm-b
+    palo-ntnx-cvm-c
+    palo-ntnx-cvm-d
 
 # group_vars 
 Located in the group_vars folder
