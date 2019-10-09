@@ -11,19 +11,16 @@ ansible.cfg Changes
 
 # tags
 There are 5 tags in the playbook so you can run all or some of the settings.
-
-    For Example it you run
-
-    ansible-playbook ntnx_sec.yml -t cvm,DODbanner,firewall 
-
-This will set the firewall and secsettings on a nutanix cluster that is running ESXi, if you have an ahv cluster you do not need any tags.
-
 - cvm - Run CVM tasks
 - ahv - Run ahv related tasks for the hypervisor
 - syslog - syslog settings
 - firewall - set and apply firewall settings on cvms
 - DODbanner - set DODBanner on cvms
 
+For Example it you run
+    ansible-playbook ntnx_sec.yml -t cvm,DODbanner,firewall 
+
+This will set the firewall and secsettings on a nutanix cluster that is running ESXi, if you have an ahv cluster you do not need any tags.
 
 # Invetory Located in the hosts folder
 This is where you will list the individual cvms for each node. I would suggest making the your cluster name the group name, for Example
