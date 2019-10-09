@@ -3,7 +3,9 @@
 A role to set and/or reset security settings on nutanix cvms for operation in a high governance area
 
 Required Variables
+
 ansible_user: nutanix           # An account with permissions to provision on the cluster
+
 ansible_password: secret      # The password to your account, Note, you should not store this in the clear, use Ansible vault
 
 ansible.cfg Changes
