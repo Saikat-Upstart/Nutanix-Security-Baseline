@@ -18,6 +18,7 @@ There are 5 tags in the playbook so you can run all or some of the settings.
 - DODbanner - set DODBanner on cvms
 
 For Example it you run
+
     ansible-playbook ntnx_sec.yml -t cvm,DODbanner,firewall 
 
 This will set the firewall and secsettings on a nutanix cluster that is running ESXi, if you have an ahv cluster you do not need any tags.
@@ -70,7 +71,12 @@ main.yml - main task List - Tasks can be comment out if not needed
  # Example commands 
  This will run the playbook on a cluster that does not have AHV hypervisor
  
- ansible-playbook ntnx_sec.yml -l nutanix_cluster_name -t cvm,security,syslog,firewall  
+    ansible-playbook ntnx_sec.yml -l nutanix_cluster_name -t cvm,security,syslog,firewall  
  
  This will run the playbook on an AHV cluster
-  ansible-playbook ntnx_sec.yml -l nutanix_cluster_name 
+ 
+     ansible-playbook ntnx_sec.yml -l nutanix_cluster_name 
+ This will run the playbook on all nutanix clusters defined in the inventory
+ 
+     ansible-playbook ntnx_sec.yml
+ 
