@@ -37,7 +37,10 @@ This is where you will list the individual cvms for each node. I would suggest m
 # group_vars 
 Located in the group_vars folder
 
-Group vars will tell which firewall template to use if you have multiple cluster to manage. The group var must match group name for it to pick up the right firewall template file
+Group vars will tell which firewall template to use if you have multiple cluster to manage. The group var must match group name for it to pick up the right firewall template file. So using the example of above for palo.nutanix.cluster you should have group var file named palo.nutanix.cluster.yml which containes the below
+     ---
+     site_firewall_rules: palo.nutanix.cluster_salt.conf.j2
+
 
 # templates 
 Located under roles/nutanix_baseline/templates
