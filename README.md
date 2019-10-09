@@ -3,17 +3,18 @@
 A role to set and/or reset security settings on nutanix cvms for operation in a high governance area
 
 Required Variables
-
-ansible_user: nutanix           # An account with permissions to provision on the cluster
-
-ansible_password: secret      # The password to your account, Note, you should not store this in the clear, use Ansible vault
+- ansible_user: nutanix          # An account with permissions to provision on the cluster
+- ansible_password: secret       # The password to your account, Note, you should not store this in the clear, use Ansible vault
 
 ansible.cfg Changes
-transfer_method = scp        # set transfer_method=scp in the ansible config file as the nutanix nodes have sftp turned off.
+- transfer_method = scp          # set transfer_method=scp in the ansible config file as the nutanix nodes have sftp turned off.
 
 # tags
-There are 5 tags in the playbook so you can run all or some of the settings, if you run 
-ansible-playbook ntnx_sec.yml -t cvm,DODbanner,firewall 
+There are 5 tags in the playbook so you can run all or some of the settings.
+
+    For Example it you run
+
+    ansible-playbook ntnx_sec.yml -t cvm,DODbanner,firewall 
 
 This will set the firewall and secsettings on a nutanix cluster that is running ESXi, if you have an ahv cluster you do not need any tags.
 
